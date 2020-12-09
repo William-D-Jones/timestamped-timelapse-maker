@@ -73,6 +73,7 @@ for (i=0; i<lengthOf(dirListTrimmed); i++) {
 		yearsInDaysSinceLastLeapYear=366+(yearRemainder-1)*365;
 		monthDaysArrayThisYear=monthDaysArrayNormalYear;
 	} else {
+		yearsInDaysSinceLastLeapYear=0;
 		monthDaysArrayThisYear=monthDaysArrayLeapYear;
 	}
 	yearsPassedInDays=365.25*yearGroupsElapsed+yearsInDaysSinceLastLeapYear;
