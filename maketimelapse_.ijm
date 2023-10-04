@@ -150,9 +150,9 @@ for (i=0; i<entriesToDo; i++) {
 
 //Open the merged directory and make an avi file
 firstSequencePath=saveDir+File.separator+"0.tiff";
-run("Image Sequence...", "open=[firstSequencePath] sort use");
+run("Image Sequence...", "open="+firstSequencePath+" sort use");
 saveDirAVI=saveDir+File.separator+substring(substring(inputPath,0,lengthOf(inputPath)-1),lastIndexOf(substring(inputPath,0,lengthOf(inputPath)-1),File.separator)+1,lengthOf(substring(inputPath,0,lengthOf(inputPath)-1)))+".avi";
-run("AVI... ", "compression=JPEG frame=7 save=[saveDirAVI]");
+run("AVI... ", "compression=JPEG frame=7 save="+saveDirAVI);
 close();
 
 setBatchMode(false);
