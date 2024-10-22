@@ -11,6 +11,12 @@ for example: Sep 25, 2019 02-46-56 PM.
 
 1. ImageJ or Fiji (last tested on Fiji/ImageJ v1.54e)
 
+## Getting Started:
+
+```
+git clone https://github.com/William-D-Jones/timestamped-timelapse-maker.git
+```
+
 ## How to Assemble Time-Lapse Movies:
 
 1. The macro is designed to assemble time-lapse movies with files in a
