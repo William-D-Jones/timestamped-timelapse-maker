@@ -20,9 +20,12 @@ intervalLengthMinutes=Dialog.getString();
 //or a time-stampted .tiff file
 dirList=getFileList(inputPath);
 //Reject entries which are not either directories or .tiff files, or which begin with "Exclude_"
-for (i=0; i<lengthOf(dirList); i++) {
+i=0;
+while (i<lengthOf(dirList)) {
 	if ((startsWith(dirList[i], excludeText)) | ((!endsWith(dirList[i], "/")) * (!endsWith(dirList[i], ".tiff")))) {
 		dirList=Array.deleteIndex(dirList,i);
+	} else {
+		i=i+1;
 	}
 }
 
@@ -150,9 +153,10 @@ for (i=0; i<entriesToDo; i++) {
 
 //Open the merged directory and make an avi file
 firstSequencePath=saveDir+File.separator+"0.tiff";
-run("Image Sequence...", "open="+firstSequencePath+" sort use");
+File.openSequence(firstSequencePath, "virtual");
+//run("Image Sequence...", "open="+firstSequencePath+" sort use"); // this command deprecated as of ImageJ 1.54e
 saveDirAVI=saveDir+File.separator+substring(substring(inputPath,0,lengthOf(inputPath)-1),lastIndexOf(substring(inputPath,0,lengthOf(inputPath)-1),File.separator)+1,lengthOf(substring(inputPath,0,lengthOf(inputPath)-1)))+".avi";
-run("AVI... ", "compression=JPEG frame=7 save="+saveDirAVI);
+run("AVI... ", "compression=JPEG frame=7 save=["+saveDirAVI+"]");
 close();
 
 setBatchMode(false);
